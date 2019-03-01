@@ -1,7 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
+import 'index/index.dart';
+import 'dart:ui';
+import 'idea/idea_page.dart';
 
-void main() => runApp(MyApp2());
+void main() => runApp(_widgetForRouter(window.defaultRouteName));
+
+Widget _widgetForRouter(String route) {
+  switch (route) {
+    case 'zhihu':
+      return ZhiHu();
+    case 'idea':
+      return IdeaPage();
+    default:
+      return ZhiHu();
+  }
+}
+
+class ZhiHu extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return MaterialApp(
+      title: '网易新闻',
+      home: Index(),
+    );
+  }
+}
 
 class MyApp2 extends StatelessWidget {
   @override
@@ -88,12 +113,51 @@ Lake Oeschinen lies at the foot of the Blüemlisalp in the Bernese Alps. Situate
     );
 
     Widget testSection = Container(
-      child: Column(
+      color: Colors.grey,
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          Text('Hello world',style: TextStyle(fontSize: 40),),
-          Text('哈哈哈哈',style: TextStyle(fontSize: 30,color: Colors.green),),
-          Icon(Icons.star,color: Colors.purple,size: 50,),
-          Icon(Icons.video_call,color: Colors.blue,size: 100,)
+          Image.asset(
+            'images/lake.jpg',
+            height: 50,
+            width: 100,
+          ),
+          Image.asset(
+            'images/lake.jpg',
+            height: 50,
+            width: 100,
+          ),
+          Image.asset(
+            'images/lake.jpg',
+            height: 50,
+            width: 100,
+          ),
+        ],
+      ),
+    );
+
+    Widget testSection2 = Container(
+      color: Colors.lightGreenAccent,
+      width: 200,
+      height: 400,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: <Widget>[
+          Image.asset(
+            'images/lake.jpg',
+            width: 100,
+            height: 50,
+          ),
+          Image.asset(
+            'images/lake.jpg',
+            width: 100,
+            height: 50,
+          ),
+          Image.asset(
+            'images/lake.jpg',
+            width: 100,
+            height: 50,
+          ),
         ],
       ),
     );
@@ -104,6 +168,10 @@ Lake Oeschinen lies at the foot of the Blüemlisalp in the Bernese Alps. Situate
         primarySwatch: Colors.blue,
       ),
       home: Scaffold(
+        backgroundColor: Colors.grey[100],
+        appBar: AppBar(
+          title: Text('导航标题👌'),
+        ),
         body: ListView(
           children: <Widget>[
             Image.asset(
@@ -116,6 +184,7 @@ Lake Oeschinen lies at the foot of the Blüemlisalp in the Bernese Alps. Situate
             buttonSection,
             textSection,
             testSection,
+            testSection2
           ],
         ),
       ),
