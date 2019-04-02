@@ -8,10 +8,19 @@ class MarketPage extends StatefulWidget{
 }
 
 class _FollowPageState extends State<MarketPage>{
+
+
+
+  Widget _buildList(BuildContext context) {
+    var content;
+
+  }
+
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
         home: new Scaffold(
+          backgroundColor: Colors.green[50],
           appBar: new AppBar(
             title: new Text('市场'),
           ),

@@ -30,6 +30,8 @@ dependencies:
   http:                   #网络请求
   dio:
   cached_network_image: ^0.4.1    #图片加载
+  flutter_sound: # 录音
+  intl:
 
 dev_dependencies:
   flutter_test:

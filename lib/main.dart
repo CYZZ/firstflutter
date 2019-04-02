@@ -7,14 +7,15 @@ import 'idea/idea_page.dart';
 void main() => runApp(_widgetForRouter(window.defaultRouteName));
 
 Widget _widgetForRouter(String route) {
-  switch (route) {
-    case 'zhihu':
-      return ZhiHu();
-    case 'idea':
-      return IdeaPage();
-    default:
-      return ZhiHu();
-  }
+//  switch (route) {
+//    case 'zhihu':
+//      return ZhiHu();
+//    case 'idea':
+//      return IdeaPage();
+//    default:
+//      return ZhiHu();
+//  }
+  return Index();
 }
 
 class ZhiHu extends StatelessWidget {

@@ -9,6 +9,7 @@ import 'news_model.dart';
 import 'package:firstflutter/common/constant.dart';
 import 'package:firstflutter/global_config.dart';
 import 'package:firstflutter/widget/common_divider.dart';
+import 'package:firstflutter/Model/zhihuModel.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -80,6 +81,8 @@ class _HomePageState extends State<HomePage> {
               child: FlatButton.icon(
                   onPressed: () {
                     print('点击了搜索按钮');
+//                    AllNews.fromParams()
+//                  AllNews.fromJson(jsonRes)
                   },
                   icon: Icon(
                     Icons.search,
