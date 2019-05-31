@@ -1,34 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:firstflutter/global_config.dart';
 
+class MarketPage extends StatefulWidget {
 
-class MarketPage extends StatefulWidget{
   @override
-  _FollowPageState createState() => _FollowPageState();
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    return _MarketPageState();
+  }
+
 }
 
-class _FollowPageState extends State<MarketPage>{
-
-
-
-  Widget _buildList(BuildContext context) {
-    var content;
-
-  }
+class _MarketPageState extends State<MarketPage> {
 
   @override
   Widget build(BuildContext context) {
+    // TODO: implement build
     return new MaterialApp(
-        home: new Scaffold(
-          backgroundColor: Colors.green[50],
-          appBar: new AppBar(
-            title: new Text('市场'),
-          ),
-          body: new Center(
-              child: null
-          ),
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('市场'),
         ),
-        theme: GlobalConfig.themeData
+        body: Center(
+          child: null,
+        ),
+      ),
+//      theme: GlobalConfig.themeData,
     );
   }
 }
