@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firstflutter/global_config.dart';
 
+
 class Recommend extends StatefulWidget {
   @override
   _RecommendPageState createState() => _RecommendPageState();

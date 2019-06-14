@@ -1,12 +1,15 @@
 #include "AppDelegate.h"
 #include "GeneratedPluginRegistrant.h"
 #import "HelloViewController.h"
+#import "PackagePathPlugin.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application
     didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   [GeneratedPluginRegistrant registerWithRegistry:self];
+	
+	[PackagePathPlugin registerWithRegistrar:[self registrarForPlugin:@"YZPackagePathPlugin"]];
 //	self.window = [[UIWindow alloc] init];
 //	self.window.frame = [UIScreen mainScreen].bounds;
 //	self.window.backgroundColor = [UIColor whiteColor];

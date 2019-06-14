@@ -33,4 +33,15 @@ class Constant {
   //def bg
   static const String defBg =
       'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1529724791909&di=02909c10c9d8ed553d070522f4c11b44&imgtype=0&src=http%3A%2F%2Fimg17.3lian.com%2Fd%2Ffile%2F201702%2F14%2Fbf13787b4f6a5c346c07b8f10466a682.jpg';
+
+  static final String redirectUrl = "http://osc.yubo.me/logincallback";
+
+  static final String loginUrl = "https://www.oschina.net/action/oauth2/authorize?client_id=4rWcDXCNTV5gMWxtagxI&response_type=code&redirect_uri=" + redirectUrl;
+
+  static final String oscClientID = "4rWcDXCNTV5gMWxtagxI";
+
+  static final String endLineTag = "COMPLETE";
+
+//  static final EventBus eventBus = new EventBus();
+
 }

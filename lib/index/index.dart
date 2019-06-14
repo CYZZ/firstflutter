@@ -6,6 +6,8 @@ import 'package:firstflutter/idea/idea_page.dart';
 import 'package:firstflutter/market/market_page.dart';
 import 'package:firstflutter/notice/notice_page.dart';
 import 'package:firstflutter/my/my_page.dart';
+import 'package:firstflutter/home/newsList_page.dart';
+import 'package:firstflutter/home/left_drawer.dart';
 
 class Index extends StatefulWidget {
   @override
@@ -24,10 +26,16 @@ class _IndexState extends State<Index> with TickerProviderStateMixin {
   @override
   void initState() {
     // TODO: implement initState
+    super.initState();
     _navigationViews = <NavigationIconView>[
+//      NavigationIconView(
+//        icon: Icon(Icons.home),
+//        title: '首页',
+//        vsync: this,
+//      ),
       NavigationIconView(
-        icon: Icon(Icons.home),
-        title: '首页',
+        icon: Icon(Icons.fiber_new),
+        title: '资讯',
         vsync: this,
       ),
       NavigationIconView(
@@ -56,9 +64,10 @@ class _IndexState extends State<Index> with TickerProviderStateMixin {
     }
 
     _pageList = <StatefulWidget>[
-      HomePage(),
-      IdeaPage(),
+//      HomePage(),
+      NewsListPage(),
       MarketPage(),
+      IdeaPage(),
       NoticePage(),
       MyPage(),
     ];
@@ -102,12 +111,17 @@ class _IndexState extends State<Index> with TickerProviderStateMixin {
 
     return MaterialApp(
       home: Scaffold(
-        body: Center(
-          child: _currentPage,
+//        body: Center(
+//          child: _currentPage,
+//        ),
+        body: IndexedStack(
+          index: _currentIndex,
+          children: _pageList,
         ),
         bottomNavigationBar: bottomNavigationBar,
+        drawer: LeftDrawer(),
       ),
-//      theme: GlobalConfig.themeData,
+      theme: GlobalConfig.themLight,
     );
   }
 }
