@@ -8,6 +8,7 @@ import 'package:firstflutter/widget/slide_view.dart';
 import 'newsDetail_page.dart';
 import 'package:firstflutter/widget/common_endline.dart';
 import 'package:firstflutter/widget/slideview_indicator.dart';
+import 'package:yzwidge_plugin/yzwidge_plugin.dart';
 
 final slideViewIndicatorStateKey = GlobalKey<SlideViewIndicatorState>();
 
@@ -51,7 +52,7 @@ class _NewsListPageState extends State<NewsListPage> {
       print('当前的listdata ！= null');
       return;
     }
-    print('当前的listdata = ${listData}');
+    print('当前的listdata = $listData');
     getNewsList(false);
   }
 
