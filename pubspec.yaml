@@ -98,6 +98,7 @@ flutter:
      - images/ic_osc_logo.png
      - images/ic_add_pics.png
      - images/ic_eye.png
+     - lib/market/wynewsDetails.css
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

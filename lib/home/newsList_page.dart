@@ -131,7 +131,7 @@ class _NewsListPageState extends State<NewsListPage> {
   /// [isLoadMore] 是否是上拉加载更多
   getNewsList(bool isLoadMore) {
     String url = Api.newsList;
-    url += "?pageIndex=1$curPage&pageSize=10";
+    url += "?pageIndex=$curPage&pageSize=10";
     NetUtils.get(url).then((data) {
 //      print('收到的数据data = $data');
       if (data != null) {
