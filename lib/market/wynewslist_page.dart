@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:firstflutter/util/NetUtils.dart';
 import 'WYConst.dart';
 import 'wynews_model.dart';
-import 'wynewsdetail_page.dart';
+
+//import 'wynewsdetail_page.dart';
+import 'wynews_webpage.dart';
 
 class WYNewsListPage extends StatefulWidget {
   final String id;
@@ -60,6 +62,7 @@ class _WYNewsListPageState extends State<WYNewsListPage> {
 //    print('新闻列表链接=$url');
     NetUtils.get(url).then((data) {
       print('data.type = ${data.runtimeType}');
+      print('data = $data');
 
       List jsonList = data["${this.id}"];
       print('jsonList.length ======${jsonList.length}');
@@ -149,44 +152,102 @@ class _WYNewsListPageState extends State<WYNewsListPage> {
       ),
     );
 
-    Widget render = Column(
-      children: <Widget>[
-        Row(
+    Widget render() {
+      if (model.imgextra?.isNotEmpty == true) {
+        return Column(
           children: <Widget>[
-            Expanded(
-              flex: 1,
-              child: Padding(
-                padding: EdgeInsets.all(10.0),
-                child: Column(
-                  children: <Widget>[
-                    titleRow,
-                    timeRow,
-                  ],
+            Padding(
+              padding: EdgeInsets.only(left: 10,top: 5,bottom: 5,right: 10),
+              child: titleRow,
+            ),
+            Row(
+              children: <Widget>[
+                Expanded(
+                  flex: 1,
+                  child: Padding(
+                    padding: EdgeInsets.all(5),
+                    child: AspectRatio(
+                      aspectRatio: 16.0 / 9.0,
+                      child: Image.network(model.imgsrc, fit: BoxFit.fill),
+                    ),
+                  ),
+                ),
+                Expanded(
+                  flex: 1,
+                  child: Padding(
+                    padding: EdgeInsets.all(5),
+                    child: AspectRatio(
+                      aspectRatio: 16.0 / 9.0,
+                      child: Image.network(model.imgextra[0]['imgsrc'],
+                          fit: BoxFit.fill),
+                    ),
+                  ),
+                ),
+                Expanded(
+                  flex: 1,
+                  child: Padding(
+                    padding: EdgeInsets.all(5),
+                    child: AspectRatio(
+                      aspectRatio: 16.0 / 9.0,
+                      child: Image.network(model.imgextra[1]['imgsrc'],
+                          fit: BoxFit.fill),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Padding(
+              padding: EdgeInsets.only(left: 10,top: 5,bottom: 5,right: 5),
+              child: timeRow,
+            ),
+            Divider(
+              height: 2.0,
+              color: Colors.grey,
+            ),
+          ],
+        );
+      }
+      return Column(
+        children: <Widget>[
+          Row(
+            children: <Widget>[
+              Expanded(
+                flex: 1,
+                child: Padding(
+                  padding: EdgeInsets.all(10.0),
+                  child: Column(
+                    children: <Widget>[
+                      titleRow,
+                      timeRow,
+                    ],
+                  ),
                 ),
               ),
-            ),
-            rightImage,
-          ],
-        ),
-        Divider(
-          height: 2.0,
-          color: Colors.grey,
-        ),
-      ],
-    );
+              rightImage,
+            ],
+          ),
+          Divider(
+            height: 2.0,
+            color: Colors.grey,
+          ),
+        ],
+      );
+    }
 
     return InkWell(
-        child: render,
+        child: render(),
         onTap: () {
-          print('点击了cell，${model.imgsrc}');
+          print('点击了cell，${model.imgsrc}， model.imgextra= ${model.imgextra}');
           Navigator.of(context).push(
             MaterialPageRoute(
-              builder: (ctx) => WYNewsDetailPage(
-                docid: model.docid,
-              ),
-            ),
+//              builder: (ctx) => WYNewsDetailPage(
+//                docid: model.docid,
+//              ),
+                builder: (context) => WYNewsWebPage(
+                      docid: model.docid,
+                    )),
           );
         });
-    return render;
+//    return render;
   }
 }

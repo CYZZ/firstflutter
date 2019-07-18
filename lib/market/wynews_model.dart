@@ -17,12 +17,16 @@ class WYNewsModel {
   /// 文章ID
   String docid;
 
+  /// 列表预览图片数组，可能为空
+  List imgextra;
+
   WYNewsModel.fromJson(jsonRes) {
     ptime = jsonRes["ptime"];
     title = jsonRes["title"];
     imgsrc = jsonRes["imgsrc"];
     source = jsonRes["source"];
     docid = jsonRes["docid"];
+    imgextra = jsonRes["imgextra"];
   }
 }
 
@@ -57,6 +61,11 @@ class WYNewsModel {
 //userClassify: "体育,NBA",
 //ename: "NBA",
 //replyCount: 8852,
+//"imgextra": [{
+//"imgsrc": "http://bjnewsrec-cv.ws.126.net/three52198096ed08a17aef15c89e086a2daae74.jpg"
+//}, {
+//"imgsrc": "http://bjnewsrec-cv.ws.126.net/three9264f6784559e78e06e5e3c33ca52507cf7.jpg"
+//}],
 //ltitle: "曝灯泡组合已不可修复 哈登:他走,或我走",
 //hasIcon: true,
 //subtitle: "",
