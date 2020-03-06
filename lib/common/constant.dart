@@ -13,6 +13,13 @@ class Constant {
   static const String tips =
       '本页应该由banner+html组成，由于Flutter对Html支持的问题，以及暂时没找到好的解决方案，暂缓该功能，怕忘记了，故保留该页面，作为优化\n请点击下面链接跳转到webview查看本文';
 
+  static const String homeTitle = '首页';
+  static const String reposTitle = '项目';
+  static const String eventsTitle = '动态';
+  static const String systemTitle = '体系';
+  static const String wan_android = "https://www.wanandroid.com/";
+  static const String server_address = wan_android;
+
   //SharedPreferences key
   static const String spThemeCache = 'sp_theme_cache';
   static const String spThemeCacheHours = 'sp_theme_cache_hours';

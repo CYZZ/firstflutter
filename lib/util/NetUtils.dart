@@ -11,10 +11,11 @@ class NetUtils {
     try {
       Response response = await dio.get(
         url,
-        queryParameters: params,
-        options: RequestOptions(
-          headers: getCommonHeader(),
-        ),
+        data:  params,
+        options: Options(headers: getCommonHeader())
+//        options: RequestOptions(
+//          headers: getCommonHeader(),
+//        ),
       );
       print("url = $url");
       print("response.request.headers = ${response.request.headers}");
@@ -33,8 +34,8 @@ class NetUtils {
     Dio dio = Dio();
     Response response = await dio.post(
       url,
-      queryParameters: params,
-      options: RequestOptions(
+      data: params,
+      options: Options(
         headers: getCommonHeader(),
       ),
     );

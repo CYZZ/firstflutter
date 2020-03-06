@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:firstflutter/global_config.dart';
 import 'article.dart';
 import 'reply_page.dart';
-import 'package:flutter/material.dart';
 import 'dart:io';
 import 'package:path_provider/path_provider.dart';
 import 'package:package_info/package_info.dart';
