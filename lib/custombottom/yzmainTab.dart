@@ -18,7 +18,7 @@ class MainTabbar extends StatefulWidget {
 }
 
 class _MainTabbarState extends State<MainTabbar> with TickerProviderStateMixin {
-  int _currentIndex = 0;
+  int _currentIndex = 2; // 默认选中中间的tab
   List<StatefulWidget> _pageList;
   List<NavigationIconView> _navigationIconViews;
 

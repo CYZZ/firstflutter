@@ -53,7 +53,7 @@ class _NewsListPageState extends State<NewsListPage> {
       return;
     }
     print('当前的listdata = $listData');
-    getNewsList(false);
+//    getNewsList(false);
   }
 
   Future<Null> _pullToRefresh() async {
@@ -136,7 +136,7 @@ class _NewsListPageState extends State<NewsListPage> {
 //      print('收到的数据data = $data');
       if (data != null) {
         // 将接口返回的json字符串解析为map类型
-        print("(data is Map) = ${(data is Map)}");
+//        print("(data is Map) = ${(data is Map)}");
 
         Map<String, dynamic> map = (data is Map) ? data : json.decode(data);
 

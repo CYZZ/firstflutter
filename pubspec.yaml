@@ -32,7 +32,7 @@ dependencies:
   http:                   #网络请求
   dio:
   cached_network_image: ^0.4.1    #图片加载
-  flutter_sound: # 录音
+#  flutter_sound: # 录音
   intl:
   package_info: ^0.3.2+1
 
