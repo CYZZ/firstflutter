@@ -1,11 +1,13 @@
 import 'package:firstflutter/idea/model/gold_model.dart';
 import 'package:firstflutter/idea/model/gold_network.dart';
 import 'package:firstflutter/util/NetUtils.dart';
+import 'package:firstflutter/widget/candle_stick.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:firstflutter/wanandroid/ui/page/page_index.dart';
 import 'package:firstflutter/common/constant.dart';
+
 //import 'package:auto_size/auto_size.dart';
 import 'package:base_library/base_library.dart';
 import 'package:firstflutter/common/constant.dart';
@@ -185,8 +187,44 @@ class _IdeaPageState extends State<IdeaPage> {
                     style: TextStyle(fontSize: 20, color: Colors.blueAccent))
               ],
             )),
+        Row(
+          children: <Widget>[
+            Container(
+              margin: EdgeInsets.fromLTRB(20, 20, 0, 0),
+              child: CustomPaint(
+                painter: goldCandleStick(),
+                size: Size(30, 100),
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.fromLTRB(20, 20, 0, 0),
+              child: CustomPaint(
+                painter: silverCandleStick(),
+                size: Size(30, 100),
+              ),
+            )
+          ],
+        )
       ],
     );
+  }
+
+  CandleStick goldCandleStick() {
+    if (_goldModel != null) {
+      return CandleStick(_goldModel.data.mostHigh, _goldModel.data.mostLow,
+          _goldModel.data.open, _goldModel.data.close);
+    } else {
+      return CandleStick(20, 20, 20, 20);
+    }
+  }
+
+  CandleStick silverCandleStick() {
+    if (_silverModel != null) {
+      return CandleStick(_silverModel.data.mostHigh, _silverModel.data.mostLow,
+          _silverModel.data.open, _silverModel.data.close);
+    } else {
+      return CandleStick(20, 20, 20, 20);
+    }
   }
 
   @override
