@@ -27,7 +27,7 @@ class CandleStick extends CustomPainter {
     final paint = Paint();
     final rect = Rect.fromLTRB(0, 0, size.width, size.height);
     // 开始计算实体的高点和低点
-    double bodyTop, bodyBottom = size.height / 2;
+    double bodyTop = size.height / 2, bodyBottom = size.height / 2;
     if (mostHigh > mostLow) {
       // 如果开盘和收盘价格不相等
       double openY =
@@ -37,8 +37,7 @@ class CandleStick extends CustomPainter {
       bodyTop = min(openY, closeY);
       bodyBottom = max(openY, closeY);
     }
-    final bodyRect =
-        Rect.fromLTRB(0.0, bodyTop, size.width, bodyBottom);
+    final bodyRect = Rect.fromLTRB(0.0, bodyTop, size.width, bodyBottom);
     // 注意这一句话
 //    canvas.clipRect(rect);
     paint.color = close > open ? red : green;

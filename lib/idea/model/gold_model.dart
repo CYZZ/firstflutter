@@ -22,12 +22,16 @@ class GoldData {
   double open;
 
   static GoldData fromMap(Map<String, dynamic> map) {
-    if (map == null) return null;
+    if (map == null) {
+      Map dataMp = {"mostHigh": 0, "mostLow": 0, "open": 0, "close": 0};
+      GoldData data = GoldData.fromMap(dataMp);
+      return data;
+    }
     GoldData data = GoldData();
-    data.mostHigh = map['mostHigh'];
-    data.mostLow = map['mostLow'];
-    data.open = map['open'];
-    data.close = map['close'];
+    data.mostHigh = map['mostHigh'] ?? 0; // 设置默认值为0，防止在计算的时候null参与
+    data.mostLow = map['mostLow'] ?? 0;
+    data.open = map['open'] ?? 0;
+    data.close = map['close'] ?? 0;
     return data;
   }
 }

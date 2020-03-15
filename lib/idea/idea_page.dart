@@ -13,6 +13,7 @@ import 'package:base_library/base_library.dart';
 import 'package:firstflutter/common/constant.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:base_library/base_library.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:yzwidge_plugin/yzwidge_plugin.dart';
 
 class IdeaPage extends StatefulWidget {
@@ -236,12 +237,21 @@ class _IdeaPageState extends State<IdeaPage> {
 
   loadNetworkData() {
     GoldNetwork.getGoldValue((model) {
-      _goldModel = model;
-      setState(() {});
+      if (model?.data != null) {
+        _goldModel = model;
+        setState(() {});
+      } else {
+        showErrorMessage(model.msg);
+      }
     });
+
     GoldNetwork.getSilverValue((model) {
-      _silverModel = model;
-      setState(() {});
+      if (model?.data != null) {
+        _silverModel = model;
+        setState(() {});
+      } else {
+        showErrorMessage(model.msg);
+      }
     });
   }
 
@@ -252,5 +262,16 @@ class _IdeaPageState extends State<IdeaPage> {
     } else {
       return "0";
     }
+  }
+
+  /// 提示错误信息
+  showErrorMessage(String message) {
+    Fluttertoast.showToast(
+      msg: message ?? "获取数据出错",
+      toastLength: Toast.LENGTH_SHORT,
+      gravity: ToastGravity.CENTER,
+      timeInSecForIos: 1,
+//      backgroundColor: Color.fromARGB(255, 0, 0, 1),
+    );
   }
 }

@@ -35,6 +35,7 @@ dependencies:
 #  flutter_sound: # 录音
   intl:
   package_info: ^0.3.2+1
+  fluttertoast:
 
   yzwidge_plugin:
     git:
