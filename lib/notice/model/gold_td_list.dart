@@ -10,19 +10,18 @@ class GoldTdList {
 
     List list1 = map["list1"] ?? [];
     model.list1 = list1.map((element) {
-      GoldTdData.fromMap(element);
+      return GoldTdData.fromMap(element);
     }).toList();
 
     List list2 = map["list2"] ?? [];
     model.list2 = list2.map((element) {
-      GoldTdData.fromMap(element);
+      return GoldTdData.fromMap(element);
     }).toList();
 
     List list3 = map["list3"] ?? [];
     model.list3 = list3.map((element) {
-      GoldTdData.fromMap(element);
+      return GoldTdData.fromMap(element);
     }).toList();
-
     return model;
   }
 }
@@ -36,6 +35,12 @@ class GoldTdData {
   String middlePrice;
   String minPrice;
   String maxPrice;
+
+  String tPrice;
+  String tPercent;
+  String tCjl;
+  String tOpenPrice;
+  String tClosePrice;
 
   static GoldTdData fromMap(Map<String, dynamic> map) {
     if (map == null) {
@@ -51,6 +56,12 @@ class GoldTdData {
     data.middlePrice = map["middle_price"] ?? "0";
     data.minPrice = map["min_price"] ?? "0";
     data.maxPrice = map["max_price"] ?? "0";
+
+    data.tPrice = map["t_price"];
+    data.tPercent = map["t_percent"];
+    data.tCjl = map["t_cjl"];
+    data.tOpenPrice = map["t_open_price"];
+    data.tClosePrice = map["t_close_pirce"];
 
     return data;
   }

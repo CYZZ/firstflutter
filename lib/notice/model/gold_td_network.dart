@@ -10,7 +10,7 @@ class GoldTdNetwork {
   // 获取gold数据
   static getGoldTdListModel(GoldDataCallBack callBack) async {
     NetUtils.get(GoldApi.goldDataList).then((data) {
-      print("获取到的goldtd=$data");
+//      print("获取到的goldtd=$data");
       GoldTdList tdModel = GoldTdList.fromMap(data);
 
       // 数据转换之后调用回调方法
